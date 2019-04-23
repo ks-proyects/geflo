@@ -3,6 +3,19 @@ Aplicación para la gestión de rosas de invernadero
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
 
+##Cargar Proyecto
+
+git clone https://github.com/ks-proyects/geflo.git
+cd geflo
+npm install
+
+## Correr Proyecto Angular
+ng serve --open
+## Correr Proyecto Angular PWA
+sudo npm install -g http-server
+ng build --prod
+cd dist/geflo/
+http-server
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
