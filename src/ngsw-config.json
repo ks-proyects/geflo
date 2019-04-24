@@ -7,6 +7,7 @@
       "resources": {
         "files": [
           "/favicon.ico",
+          "/manifest.json",
           "/index.html",
           "/*.css",
           "/*.js"
@@ -19,8 +20,24 @@
       "resources": {
         "files": [
           "/assets/**",
-          "/*.(eot|svg|cur|jpg|png|webp|gif|otf|ttf|woff|woff2|ani)"
+          "/*.(eot|svg|cur|jpg|png|webp|gif|otf|ttf|woff|woff2|ani)",
+          "../node_modules/@angular/material/prebuilt-themes/indigo-pink.css"
         ]
+      }
+    }
+  ],
+  "dataGroups":[
+    {
+      "name":"RedditAPI",
+      "urls":[
+        "https://reddit.com/r/pics.json",
+        "https://reddit.com/r/**"
+      ],
+      "cacheConfig":{
+        "strategy":"performance",
+        "maxAge":"1d",
+        "maxSize":100,
+        "timeout":"3s"
       }
     }
   ]

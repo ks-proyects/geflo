@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1556001347104,
+  "timestamp": 1556084312382,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -11,10 +11,11 @@
         "/es2015-polyfills.c5dd28b362270c767b34.js",
         "/favicon.ico",
         "/index.html",
-        "/main.c20cc0ed10339c59e381.js",
+        "/main.2e556c5a5c1648a43a9c.js",
+        "/manifest.json",
         "/polyfills.8bbb231b43165d65d357.js",
         "/runtime.26209474bfa8dc87a77c.js",
-        "/styles.3ff695c00d717f2d2a11.css"
+        "/styles.1dfb04c70e322fc87351.css"
       ],
       "patterns": []
     },
@@ -30,28 +31,44 @@
         "/assets/icons/icon-384x384.png",
         "/assets/icons/icon-512x512.png",
         "/assets/icons/icon-72x72.png",
-        "/assets/icons/icon-96x96.png"
+        "/assets/icons/icon-96x96.png",
+        "/assets/manifest.json"
       ],
       "patterns": []
     }
   ],
-  "dataGroups": [],
+  "dataGroups": [
+    {
+      "name": "RedditAPI",
+      "patterns": [
+        "https:\\/\\/reddit\\.com\\/r\\/pics\\.json",
+        "https:\\/\\/reddit\\.com\\/r\\/.*"
+      ],
+      "strategy": "performance",
+      "maxSize": 100,
+      "maxAge": 86400000,
+      "timeoutMs": 3000,
+      "version": 1
+    }
+  ],
   "hashTable": {
-    "/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
-    "/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
-    "/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
-    "/assets/icons/icon-192x192.png": "1abd80d431a237a853ce38147d8c63752f10933b",
-    "/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
-    "/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
-    "/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
-    "/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
+    "/assets/icons/icon-128x128.png": "96a0bc0850f3233e7b5d74cbc76e34a8e60c631b",
+    "/assets/icons/icon-144x144.png": "6aa5d4fa24227b1fda50ba096ce33108f1c27d69",
+    "/assets/icons/icon-152x152.png": "681362edd0f1cbe7f6c410d2c8ee13b4b8cb8834",
+    "/assets/icons/icon-192x192.png": "a4e9ffc44f50f74ef1671c88f083fbbfa31ef404",
+    "/assets/icons/icon-384x384.png": "5bdedb71c0e07a3d0d16db8342ecc324e28fcb3f",
+    "/assets/icons/icon-512x512.png": "7bc490a561f2cf40a3dd94a425d9f62a5d8bb01f",
+    "/assets/icons/icon-72x72.png": "e7310a55c0c42fa258a4712039c5e648ae79070a",
+    "/assets/icons/icon-96x96.png": "9ffc0c03000a1cbd25a23991950a796a80d3f936",
+    "/assets/manifest.json": "f80d5921f0abe4d536049b36f216f18f251ed8dd",
     "/es2015-polyfills.c5dd28b362270c767b34.js": "b7a81c61d32b0b12737f0c13f45973ba391cd7f9",
     "/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
-    "/index.html": "462b6ea3e5b3f3ca6f9136a00652f18c4da31f86",
-    "/main.c20cc0ed10339c59e381.js": "886869d9f29a24636f633d273cc623c93954bf60",
+    "/index.html": "f8155b2892900dbfda66a678edbc9ac584fccff0",
+    "/main.2e556c5a5c1648a43a9c.js": "038dd026929f91e0710b5a73074d7846925f99e1",
+    "/manifest.json": "c24b0c6df9bcd0defa98b5df48822cbfedf90ee0",
     "/polyfills.8bbb231b43165d65d357.js": "ffa449995bf2eba2ccd0a002417214f7eb75e7b5",
     "/runtime.26209474bfa8dc87a77c.js": "b62956c2192bfe5516d6374e753773901ed50ec5",
-    "/styles.3ff695c00d717f2d2a11.css": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+    "/styles.1dfb04c70e322fc87351.css": "cf178f57a2117e87e9f03802553eca9ffeb0a42b"
   },
   "navigationUrls": [
     {
