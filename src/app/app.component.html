@@ -10,34 +10,43 @@
   <mat-expansion-panel>
     <mat-expansion-panel-header>
       <mat-panel-title>
-        Personal data
+        Bloque
       </mat-panel-title>
       <mat-panel-description>
-        Type your name and age
+        Permite Crear o Editar un Bloque
       </mat-panel-description>
     </mat-expansion-panel-header>
 
     <mat-form-field>
-      <input matInput placeholder="First name">
+      <input matInput placeholder="Nombre" [(ngModel)]="bloq.nombre">
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput placeholder="Age">
+      <mat-label>Supervisor</mat-label>
+      <mat-select [(ngModel)]="bloq.supervisor">
+        <mat-option *ngFor="let sup of workerSupervisores" [value]="sup.id" >
+          {{sup.nombres}}
+        </mat-option>
+      </mat-select>
     </mat-form-field>
-    <button mat-raised-button>Click me!</button>
+    <mat-form-field class="example-full-width">
+      <textarea matInput placeholder="Ubicación" [(ngModel)]="bloq.ubicacion"></textarea>
+    </mat-form-field>
+
+    <button mat-raised-button (click)="saveBloq()">Click me!</button>
   </mat-expansion-panel>
-  <mat-expansion-panel (opened)="panelOpenState = true"
-                       (closed)="panelOpenState = false">
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        Self aware panel
-      </mat-panel-title>
-      <mat-panel-description>
-        Currently I am {{panelOpenState ? 'open' : 'closed'}}
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-    <p>I'm visible because I am open</p>
-  </mat-expansion-panel>
+  <mat-list>
+    <mat-list-item >
+      <h3 matLine> Nombre</h3>
+      <p matLine> Supervisor </p>
+      <p matLine class="demo-2"> Ubicacion </p>
+    </mat-list-item>
+    <mat-list-item >
+      <h3 matLine> Nombre</h3>
+      <p matLine> Supervisor </p>
+      <p matLine class="demo-2"> Ubicacion </p>
+    </mat-list-item>
+  </mat-list>
 </mat-accordion>
 
 
