@@ -7,7 +7,8 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule,MatExpansionModule,MatFormFieldModule,MatInputModule,MatButtonModule,MatSelectModule,MatOptionModule,MatListModule,
-  MatSnackBarModule
+  MatSnackBarModule,
+  MatGridListModule
 } from '@angular/material';
 
 import { AngularFirestoreModule } from '@angular/fire/firestore';

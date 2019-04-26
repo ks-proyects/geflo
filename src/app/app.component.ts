@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SwUpdate } from '@angular/service-worker';
 import {BloqService} from '../services/bloq.service';
+import {OuthService} from '../services/outh.service';
 import {MatSnackBar} from '@angular/material';
 
 @Component({
@@ -14,7 +15,7 @@ export class AppComponent  implements OnInit{
   workerSupervisores:any=[{id: 1 , nombres : 'Freddy Castillo'}, { id : 2, nombres: 'Dayana Cualchi'}]
   bloq:any={}
   bloqs:any=[]
-  constructor(private swUpdate:SwUpdate,private serviceBloq:BloqService,private snackBar: MatSnackBar){
+  constructor(private swUpdate:SwUpdate,private serviceBloq:BloqService,private snackBar: MatSnackBar,private outhService: OuthService){
     this.serviceBloq.getBloqs().valueChanges().subscribe((fbbloqs)=>{
       this.bloqs=fbbloqs;
     })
@@ -46,5 +47,18 @@ export class AppComponent  implements OnInit{
   } 
   selBloq(item){
     this.bloq=item;
+  }
+  inactivar(item){
+    if(confirm("Desea Eliminar el Bloque?")){
+      this.serviceBloq.deleteBloq(item).then(()=>{
+        this.snackBar.open("Eliminado", null, {
+          duration: 2000,
+        });
+      });
+    }
+
+  }
+  login(){
+    this.outhService.loginWithFacebook();
   }
 }
