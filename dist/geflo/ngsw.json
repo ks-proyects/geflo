@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1556174631420,
+  "timestamp": 1556257893161,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -11,7 +11,7 @@
         "/es2015-polyfills.c5dd28b362270c767b34.js",
         "/favicon.ico",
         "/index.html",
-        "/main.19f6fbede608ea3926da.js",
+        "/main.8cbd2da08cde40cf9f49.js",
         "/manifest.json",
         "/polyfills.8bbb231b43165d65d357.js",
         "/runtime.26209474bfa8dc87a77c.js",
@@ -39,15 +39,14 @@
   ],
   "dataGroups": [
     {
-      "name": "RedditAPI",
+      "name": "FirebaseAPI",
       "patterns": [
-        "https:\\/\\/reddit\\.com\\/r\\/pics\\.json",
-        "https:\\/\\/reddit\\.com\\/r\\/.*"
+        "https:\\/\\/geflo-eb404\\.firebaseio\\.com\\/.*"
       ],
-      "strategy": "performance",
+      "strategy": "freshnes",
       "maxSize": 100,
-      "maxAge": 86400000,
-      "timeoutMs": 3000,
+      "maxAge": 7200000,
+      "timeoutMs": 5000,
       "version": 1
     }
   ],
@@ -63,8 +62,8 @@
     "/assets/manifest.json": "f80d5921f0abe4d536049b36f216f18f251ed8dd",
     "/es2015-polyfills.c5dd28b362270c767b34.js": "b7a81c61d32b0b12737f0c13f45973ba391cd7f9",
     "/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
-    "/index.html": "b1195cbd7f13fa0f7a6170a92f993cd92f40dc34",
-    "/main.19f6fbede608ea3926da.js": "253febf64f9934773ac3a6a25fc0335b0d42dfd9",
+    "/index.html": "7a09456d60477b86cccc175904d1efa102e7282d",
+    "/main.8cbd2da08cde40cf9f49.js": "51831912b11031d7af131209512d8896e5b1bee9",
     "/manifest.json": "c24b0c6df9bcd0defa98b5df48822cbfedf90ee0",
     "/polyfills.8bbb231b43165d65d357.js": "ffa449995bf2eba2ccd0a002417214f7eb75e7b5",
     "/runtime.26209474bfa8dc87a77c.js": "b62956c2192bfe5516d6374e753773901ed50ec5",
