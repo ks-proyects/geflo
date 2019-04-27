@@ -4,7 +4,7 @@
   "name": "Geflo",
   "scope": "/",
   "display": "fullscreen",
-  "start_url": "http://127.0.0.1:8081/",
+  "start_url": "/?utm_source=a2hs",
   "short_name": "Geflo",
   "theme_color": "transparent",
   "description": "Aplicación para la gestión de rosas de invernadero",
