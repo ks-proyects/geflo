@@ -34,7 +34,7 @@ const firebaseConfig:any = {
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    ServiceWorkerModule.register('ngsw-config.json', { enabled: environment.production }),
     BrowserAnimationsModule,
     MatToolbarModule,
     MatExpansionModule,
