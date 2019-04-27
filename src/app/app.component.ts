@@ -15,18 +15,19 @@ export class AppComponent  implements OnInit{
   workerSupervisores:any=[{id: 1 , nombres : 'Freddy Castillo'}, { id : 2, nombres: 'Dayana Cualchi'}]
   bloq:any={}
   bloqs:any=[]
+  user:any={}
   constructor(private swUpdate:SwUpdate,private serviceBloq:BloqService,private snackBar: MatSnackBar,private outhService: OuthService){
     this.serviceBloq.getBloqs().valueChanges().subscribe((fbbloqs)=>{
       this.bloqs=fbbloqs;
     })
   }
   ngOnInit():void{
-    if(this.swUpdate.isEnabled){
-      this.swUpdate.available.subscribe(()=>{
+    if (this.swUpdate.isEnabled) {
+      this.swUpdate.available.subscribe(async () => {
         window.location.reload();
-      })
-    }
+      });
   }
+}
   saveBloq(){
     if(!this.bloq.id){
     this.bloq.id=Date.now();
@@ -59,6 +60,23 @@ export class AppComponent  implements OnInit{
 
   }
   login(){
-    this.outhService.loginWithFacebook();
+    this.outhService.loginWithFacebook().then((result) => {
+        var token = result.credential.providerId;
+        var user = result.user;
+        console.log('Se logeo correctamente!');
+        console.log('Token: ', token);
+        console.log('Usuario', user);
+        this.user=user;
+    }).catch((error) => {
+        console.log(error);
+    });
+  }
+  logout(){
+    this.outhService.logout().then((result) => {
+      console.log('Se salio de la seccion correctamente!');
+      console.log(result);
+  }).catch((error) => {
+      console.log(error);
+  });
   }
 }
