@@ -18,14 +18,15 @@ export class AppComponent  implements OnInit{
   bloqs:any=[]
   user:any={}
   message:any={}
+  token:any={}
   constructor(private swUpdate:SwUpdate,private serviceBloq:BloqService,private snackBar: MatSnackBar,private outhService: OuthService,private msgService:MessagingService){
     this.serviceBloq.getBloqs().valueChanges().subscribe((fbbloqs)=>{
       this.bloqs=fbbloqs;
     })
   }
   ngOnInit():void{
-    this.msgService.getPermission()
-    this.msgService.receiveMessage()
+    this.msgService.getPermission();
+    this.msgService.receiveMessage();
     this.message = this.msgService.currentMessage
     if (this.swUpdate.isEnabled) {
       this.swUpdate.available.subscribe(async () => {
@@ -68,10 +69,8 @@ export class AppComponent  implements OnInit{
     this.outhService.loginWithFacebook().then((result) => {
         var token = result.credential.providerId;
         var user = result.user;
-        console.log('Se logeo correctamente!');
-        console.log('Token: ', token);
-        console.log('Usuario', user);
         this.user=user;
+        this.msgService.getPermission();
     }).catch((error) => {
         console.log(error);
     });

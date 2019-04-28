@@ -9,7 +9,6 @@ export class OuthService{
     }
     loginWithFacebook(){
         var proveedor=new firebase.auth.FacebookAuthProvider();
-        proveedor.addScope('user_birthday');
         return this.afAuth.auth.signInWithPopup(proveedor);
     }
     logout(){

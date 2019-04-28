@@ -18,9 +18,10 @@ export class MessagingService {
 
   updateToken(token) {
     this.afAuth.authState.take(1).subscribe(user => {
+      console.log(user);
       if (!user) return;
       const data = { [user.uid]: token }
-      this.db.object('fcmTokens/').update(data)
+      this.db.object('fcmTokens/').update(data);
     })
   }
 
