@@ -3,6 +3,7 @@
 <div style="text-align:center">
   <button mat-raised-button (click)="login()">Facebook</button>
   <button mat-raised-button (click)="logout()">Salir</button>
+  {{ message | async | json }}
   <h1>
     Bienvenido {{ title }}  !
   </h1>
