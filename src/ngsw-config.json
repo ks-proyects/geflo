@@ -39,7 +39,7 @@
         "https://geflo-eb404.firebaseio.com/**"
       ],
       "cacheConfig":{
-        "strategy":"performance",
+        "strategy":"freshness",
         "maxAge":"1d",
         "maxSize":100,
         "timeout":"5s"

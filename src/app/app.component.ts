@@ -4,6 +4,7 @@ import {BloqService} from '../services/bloq.service';
 import {OuthService} from '../services/outh.service';
 import {MatSnackBar} from '@angular/material';
 import { MessagingService } from './messaging.service';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-root',
@@ -19,7 +20,26 @@ export class AppComponent  implements OnInit{
   user:any={}
   message:any={}
   token:any={}
+  networkMode = 'online';
   constructor(private swUpdate:SwUpdate,private serviceBloq:BloqService,private snackBar: MatSnackBar,private outhService: OuthService,private msgService:MessagingService){
+    firebase.firestore().enablePersistence()
+      .then(function() {
+          // Initialize Cloud Firestore through firebase
+          var db = firebase.firestore();
+      })
+      .catch(function(err) {
+          if (err.code == 'failed-precondition') {
+              // Multiple tabs open, persistence can only be enabled
+              // in one tab at a a time.
+              // ...
+          } else if (err.code == 'unimplemented') {
+              // The current browser does not support all of the
+              // features required to enable persistence
+              // ...
+          }
+      });
+    navigator.onLine === true ? this.networkMode = 'online' : this.networkMode = 'offline';
+
     this.serviceBloq.getBloqs().valueChanges().subscribe((fbbloqs)=>{
       this.bloqs=fbbloqs;
     })
@@ -29,9 +49,11 @@ export class AppComponent  implements OnInit{
     this.msgService.receiveMessage();
     this.message = this.msgService.currentMessage
     if (this.swUpdate.isEnabled) {
-      this.swUpdate.available.subscribe(async () => {
-        window.location.reload();
-      });
+        this.swUpdate.available.subscribe(async () => {
+          if(confirm("Existe una nueva versión desea actualizar?")){
+            window.location.reload();
+          }
+        });
   }
 }
   saveBloq(){

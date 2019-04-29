@@ -1,4 +1,4 @@
 curl https://fcm.googleapis.com/fcm/send \
      -H "Content-Type: application/json" \
      -H "Authorization: key=AAAAHYHwbzo:APA91bFGdlY4A_Je_aJ3efruAgmGbTlgnrOVr2GASpuepvVnXofh96jJaKOg6tNLGnB7hgIeJr7BGwBZ7X0qQ7H8prsf6c0_6CN-nZHtiblcO7CWiiVqf1pyArQ7rfjnaxUYEq5Cr9cV" \
-     -d '{ "notification": {"title": "Test title", "body": "Test Body", "click_action" : "https://angularfirebase.com"},"to" : "fmTFFsSEXU8:APA91bFIzZ7XmdStzgmLIHzCOf-Ooiom3tGY6tFxcnPK2c8ZxxrG9iD2h7tfy6yBHgVIncUe6ysYYz3pcIzr53KR02Yf4DkRwqIGK3eXRFuwR2Vp7KL0tlq1Hj1BiYeOI2nJAX2pStty"}'
+     -d '{ "notification": {"title": "Test title", "body": "Test Body", "click_action" : "https://angularfirebase.com"},"to" : "ebVHanj1rEA:APA91bEP68CUk_1HvL1CVmTAlfMPumpl2KSgAOFWCkMzIuvx7nedN9qO9Z20tGRuo4_QxU_4X3xKc5oiDLuGZ5SpiLQOU39Kp1d511YUNC4MTPb8Oz2aUKSyBhseYuVuDg4b2aXgGNqa"}'
