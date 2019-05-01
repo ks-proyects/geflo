@@ -5,6 +5,8 @@ import {OuthService} from '../services/outh.service';
 import {MatSnackBar} from '@angular/material';
 import { MessagingService } from './messaging.service';
 import * as firebase from 'firebase';
+import { AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -21,6 +23,9 @@ export class AppComponent  implements OnInit{
   message:any={}
   token:any={}
   networkMode = 'online';
+  tasksCollection: AngularFirestoreCollection<{}>;
+  tasks: Observable<{}[]>;
+  taskDoc: AngularFirestoreDocument<{}>;
   constructor(private swUpdate:SwUpdate,private serviceBloq:BloqService,private snackBar: MatSnackBar,private outhService: OuthService,private msgService:MessagingService){
     firebase.firestore().enablePersistence()
       .then(function() {
@@ -40,15 +45,12 @@ export class AppComponent  implements OnInit{
       });
     navigator.onLine === true ? this.networkMode = 'online' : this.networkMode = 'offline';
 
-    this.serviceBloq.getBloqs().valueChanges().subscribe((fbbloqs)=>{
-      this.bloqs=fbbloqs;
-    })
+    
   }
   ngOnInit():void{
-    alert('init')
     this.msgService.getPermission();
     this.msgService.receiveMessage();
-    this.message = this.msgService.currentMessage
+    this.message = this.msgService.currentMessage;
     if (this.swUpdate.isEnabled) {
         this.swUpdate.available.subscribe(async () => {
           if(confirm("Existe una nueva versión desea actualizar?")){
@@ -56,20 +58,29 @@ export class AppComponent  implements OnInit{
           }
         });
   }
-}
+  this.serviceBloq.getCoffeeOrders().subscribe(data => {
+    this.bloqs = data.map(e => {
+      return {
+        id: e.payload.doc.id,
+        ...e.payload.doc.data()
+      } as {};
+    });
+  });
+  }
   saveBloq(){
     if(!this.bloq.id){
-    this.bloq.id=Date.now();
-    this.serviceBloq.creteBloq(this.bloq).then(()=>{
-      this.bloq={};
-      this.snackBar.open("Guardado", null, {
-        duration: 2000,
-      });
-    });
+      this.bloq.fecha=Date.now();
+      this.serviceBloq.createCoffeeOrder(this.bloq)
+         .then(res => {
+          this.bloq={};
+          this.snackBar.open("Guardado", null, {
+            duration: 2000,
+          });
+         });
   }else{
-    this.serviceBloq.editBloq(this.bloq).then(()=>{
+    this.serviceBloq.updateCoffeeOrder(this.bloq).then(resp=>{
       this.bloq={};
-      this.snackBar.open("Actualizado", null, {
+      this.snackBar.open('Actualizado', null, {
         duration: 2000,
       });
     });
@@ -79,9 +90,10 @@ export class AppComponent  implements OnInit{
     this.bloq=item;
   }
   inactivar(item){
-    if(confirm("Desea Eliminar el Bloque?")){
-      this.serviceBloq.deleteBloq(item).then(()=>{
-        this.snackBar.open("Eliminado", null, {
+    if(confirm('Desea Eliminar el Bloque?')){
+      this.serviceBloq.deleteCoffeeOrder(item).then(()=>{
+        this.bloq={};
+        this.snackBar.open('Eliminado', null, {
           duration: 2000,
         });
       });

@@ -27,7 +27,8 @@
         ],
         "urls": [
           "https://fonts.googleapis.com/**",
-          "https://itnext-summit-2018.firebaseapp.com/**"
+          "https://cdnjs.cloudflare.com/**",
+          "https://claveturismo.com/**"
         ]
       }
     }

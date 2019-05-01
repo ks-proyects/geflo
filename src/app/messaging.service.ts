@@ -18,7 +18,6 @@ export class MessagingService {
 
   updateToken(token) {
     this.afAuth.authState.take(1).subscribe(user => {
-      console.log(user);
       if (!user) return;
       const data = { [user.uid]: token }
       this.db.object('fcmTokens/').update(data);
@@ -28,11 +27,9 @@ export class MessagingService {
   getPermission() {
       this.messaging.requestPermission()
       .then(() => {
-        console.log('Notification permission granted.');
         return this.messaging.getToken()
       })
       .then(token => {
-        console.log(token)
         this.updateToken(token)
       })
       .catch((err) => {

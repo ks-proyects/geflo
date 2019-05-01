@@ -5,13 +5,9 @@
   <button mat-raised-button (click)="logout()">Salir</button>
   {{ message | async | json }}
   <h1>
-    Bienvenido {{ title }}  !
+    Bienvenido {{user.displayName}} !
   </h1>
-  {{user.displayName}}
-  <img width="300" alt="Angular Logo" src="{{user.photoURL}}">
-
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-  user
+  <img width="300" alt="Angular Logo" src="../assets/geflo152x152.png">
 </div>
 <mat-accordion>
   <mat-expansion-panel>
@@ -19,15 +15,10 @@
       <mat-panel-title>
         Bloque
       </mat-panel-title>
-      <mat-panel-description>
-        Permite Crear o Editar un Bloque
-      </mat-panel-description>
     </mat-expansion-panel-header>
-
     <mat-form-field>
       <input matInput placeholder="Nombre" [(ngModel)]="bloq.nombre">
     </mat-form-field>
-
     <mat-form-field>
       <mat-label>Supervisor</mat-label>
       <mat-select [(ngModel)]="bloq.supervisor">
@@ -36,22 +27,18 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field class="example-full-width">
+    <mat-form-field >
       <textarea matInput placeholder="Ubicación" [(ngModel)]="bloq.ubicacion"></textarea>
     </mat-form-field>
-
     <button mat-raised-button (click)="saveBloq()">Guardar</button>
   </mat-expansion-panel>
   <mat-list>
     <mat-list-item *ngFor="let item of bloqs" (click)="selBloq(item)"  >
       <h3 matLine>{{item.nombre}}</h3>
-      <p matLine> {{item.supervisor}}</p>
-      <small matLine > {{item.ubicacion}} - {{item.id | date}}</small>
+      <p matLine> {{item.supervisor}}</p> 
+      <small matLine > {{item.ubicacion}} - {{item.fecha | date}}</small>
       <button mat-button (click)="inactivar(item)">X</button>
     </mat-list-item>
   </mat-list>
-  
 </mat-accordion>
-
-
 <router-outlet></router-outlet>
