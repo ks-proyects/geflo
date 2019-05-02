@@ -51,7 +51,7 @@ const firebaseConfig: any = {
     MatOptionModule,
     MatListModule,
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFirestoreModule,
+    AngularFirestoreModule.enablePersistence(),
     AngularFireAuthModule,
     AngularFireStorageModule,
     AngularFireDatabaseModule,

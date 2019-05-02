@@ -30,6 +30,7 @@
     <mat-form-field >
       <textarea matInput placeholder="Ubicación" [(ngModel)]="bloq.ubicacion"></textarea>
     </mat-form-field>
+    <button mat-raised-button (click)="selBloqNew()">Nuevo</button>
     <button mat-raised-button (click)="saveBloq()">Guardar</button>
   </mat-expansion-panel>
   <mat-list>
