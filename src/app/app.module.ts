@@ -12,8 +12,14 @@ import {
   MatIconModule,
   MatCardModule,
   MatMenuModule,
-  MatButtonToggleModule
+  MatButtonToggleModule,
+  MatProgressSpinnerModule,
+  MatSortModule,
+  MatPaginatorModule,
+  MatDialog,
+  MatDialogModule
 } from '@angular/material';
+import {MatTableModule} from '@angular/material/table';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Component } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
@@ -32,6 +38,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { BloquesComponent } from './bloques/bloques.component';
+import { BloquesEditComponent } from './bloques-edit/bloques-edit.component';
 
 const firebaseConfig: any = {
     apiKey: 'AIzaSyBqnISpUrzsVFNrpiz5Dt44eVngRoxk9P8',
@@ -53,21 +60,14 @@ const appRouter: Routes = [
     AppComponent,
     HomeComponent,
     LoginComponent,
-    BloquesComponent
+    BloquesComponent,
+    BloquesEditComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ServiceWorkerModule.register('main-sw.js', { enabled: environment.production }),
     BrowserAnimationsModule,
-    MatToolbarModule,
-    MatExpansionModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-    MatSelectModule,
-    MatOptionModule,
-    MatListModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule.enablePersistence(),
     AngularFireAuthModule,
@@ -81,8 +81,20 @@ const appRouter: Routes = [
     MatCardModule,
     MatMenuModule,
     RouterModule.forRoot(appRouter),
-    MatButtonToggleModule
-
+    MatButtonToggleModule,
+    MatTableModule,
+    MatToolbarModule,
+    MatExpansionModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatSelectModule,
+    MatOptionModule,
+    MatListModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatProgressSpinnerModule,
+    MatDialogModule
   ],
   providers: [{ provide: FirestoreSettingsToken, useValue: {} }],
   bootstrap: [AppComponent]
