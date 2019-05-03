@@ -1,29 +1,5 @@
 <mat-drawer-container autosize>
-        <mat-toolbar color="primary" role="heading">
-            <mat-toolbar-row role="heading" class="index-toolba-row">
-                <button mat-icon-button (click)="drawer.toggle();viewMenu = !viewMenu;">
-                    <mat-icon *ngIf=!viewMenu>keyboard_arrow_right</mat-icon>
-                    <mat-icon *ngIf=viewMenu>keyboard_arrow_left</mat-icon>
-                </button>
-                {{title}}
-            </mat-toolbar-row>
-            <mat-toolbar-row class="index-toolba-row">
-                <mat-button-toggle-group #group="matButtonToggleGroup">
-                    <mat-button-toggle value="left" title="Producción">
-                        <mat-icon>group_work</mat-icon>
-                    </mat-button-toggle>
-                    <mat-button-toggle value="center">
-                        <mat-icon>timeline</mat-icon>
-                    </mat-button-toggle>
-                    <mat-button-toggle value="right">
-                        <mat-icon>message</mat-icon>
-                    </mat-button-toggle>
-                    <mat-button-toggle value="justify" disabled>
-                        <mat-icon>screen_share</mat-icon>
-                    </mat-button-toggle>
-                </mat-button-toggle-group>
-            </mat-toolbar-row>
-        </mat-toolbar>
+        
         
         <mat-drawer #drawer mode="side">
             <mat-toolbar color="primary">Menú</mat-toolbar>
@@ -31,10 +7,35 @@
                 <a mat-list-item href="#" [routerLink]="['/login']" routerLinkActive="router-link-active">Ingresar</a>
                 <a mat-list-item href="#" [routerLink]="['/home']" routerLinkActive="router-link-active">Principal</a>
                 <a mat-list-item href="#" [routerLink]="['/bloques']" routerLinkActive="router-link-active">Bloques</a>
-                <a mat-list-item href="#" (click)="logout()">Salir</a>
+                <a mat-list-item href="#" [routerLink]="['/']" routerLinkActive="router-link-active"  (click)="logout()">Salir</a>
             </mat-nav-list>
         </mat-drawer>
         <mat-drawer-content>
+                <mat-toolbar color="primary" role="heading">
+                        <mat-toolbar-row role="heading" class="index-toolba-row">
+                            <button mat-icon-button (click)="drawer.toggle();viewMenu = !viewMenu;">
+                                <mat-icon *ngIf=!viewMenu>keyboard_arrow_right</mat-icon>
+                                <mat-icon *ngIf=viewMenu>keyboard_arrow_left</mat-icon>
+                            </button>
+                            {{title}}
+                        </mat-toolbar-row>
+                        <mat-toolbar-row class="index-toolba-row">
+                            <mat-button-toggle-group #group="matButtonToggleGroup">
+                                <mat-button-toggle value="left" title="Producción">
+                                    <mat-icon>group_work</mat-icon>
+                                </mat-button-toggle>
+                                <mat-button-toggle value="center">
+                                    <mat-icon>timeline</mat-icon>
+                                </mat-button-toggle>
+                                <mat-button-toggle value="right">
+                                    <mat-icon>message</mat-icon>
+                                </mat-button-toggle>
+                                <mat-button-toggle value="justify" disabled>
+                                    <mat-icon>screen_share</mat-icon>
+                                </mat-button-toggle>
+                            </mat-button-toggle-group>
+                        </mat-toolbar-row>
+                    </mat-toolbar>
             <router-outlet></router-outlet>
         </mat-drawer-content>
     </mat-drawer-container>
