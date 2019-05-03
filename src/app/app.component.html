@@ -1,45 +1,37 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<mat-toolbar color="primari">Geflo</mat-toolbar>
-<div style="text-align:center">
-  <button mat-raised-button (click)="login()">Facebook</button>
-  <button mat-raised-button (click)="logout()">Salir</button>
-  {{ message | async | json }}
-  <h1>
-    Bienvenido {{user.displayName}} !
-  </h1>
-  <img width="300" alt="Angular Logo" src="../assets/geflo152x152.png">
-</div>
-<mat-accordion>
-  <mat-expansion-panel>
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        Bloque
-      </mat-panel-title>
-    </mat-expansion-panel-header>
-    <mat-form-field>
-      <input matInput placeholder="Nombre" [(ngModel)]="bloq.nombre">
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Supervisor</mat-label>
-      <mat-select [(ngModel)]="bloq.supervisor">
-        <mat-option *ngFor="let sup of workerSupervisores" [value]="sup.id" >
-          {{sup.nombres}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-    <mat-form-field >
-      <textarea matInput placeholder="Ubicación" [(ngModel)]="bloq.ubicacion"></textarea>
-    </mat-form-field>
-    <button mat-raised-button (click)="selBloqNew()">Nuevo</button>
-    <button mat-raised-button (click)="saveBloq()">Guardar</button>
-  </mat-expansion-panel>
-  <mat-list>
-    <mat-list-item *ngFor="let item of bloqs" (click)="selBloq(item)"  >
-      <h3 matLine>{{item.nombre}}</h3>
-      <p matLine> {{item.supervisor}}</p> 
-      <small matLine > {{item.ubicacion}} - {{item.fecha | date}}</small>
-      <button mat-button (click)="inactivar(item)">X</button>
-    </mat-list-item>
-  </mat-list>
-</mat-accordion>
-<router-outlet></router-outlet>
+<mat-drawer-container autosize>
+        <mat-toolbar color="primary" role="heading">
+            <mat-toolbar-row role="heading" class="index-toolba-row">
+                <button mat-icon-button (click)="drawer.toggle();viewMenu = !viewMenu;">
+                    <mat-icon *ngIf=!viewMenu>keyboard_arrow_right</mat-icon>
+                    <mat-icon *ngIf=viewMenu>keyboard_arrow_left</mat-icon>
+                </button>
+                {{title}}
+            </mat-toolbar-row>
+            <mat-toolbar-row class="index-toolba-row">
+                <mat-button-toggle-group #group="matButtonToggleGroup">
+                    <mat-button-toggle value="left" title="Producción">
+                        <mat-icon>group_work</mat-icon>
+                    </mat-button-toggle>
+                    <mat-button-toggle value="center">
+                        <mat-icon>timeline</mat-icon>
+                    </mat-button-toggle>
+                    <mat-button-toggle value="right">
+                        <mat-icon>message</mat-icon>
+                    </mat-button-toggle>
+                    <mat-button-toggle value="justify" disabled>
+                        <mat-icon>screen_share</mat-icon>
+                    </mat-button-toggle>
+                </mat-button-toggle-group>
+            </mat-toolbar-row>
+        </mat-toolbar>
+        <mat-drawer #drawer mode="side">
+            <mat-toolbar color="primary">Menú</mat-toolbar>
+            <mat-nav-list>
+                <a mat-list-item href="#" [routerLink]="['/login']" routerLinkActive="router-link-active">Ingresar</a>
+                <a mat-list-item href="#" [routerLink]="['/home']" routerLinkActive="router-link-active">Principal</a>
+                <a mat-list-item href="#" [routerLink]="['/bloques']" routerLinkActive="router-link-active">Bloques</a>
+                <a mat-list-item href="#" (click)="logout()">Salir</a>
+            </mat-nav-list>
+        </mat-drawer>
+        <router-outlet></router-outlet>
+    </mat-drawer-container>

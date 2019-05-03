@@ -1,0 +1,33 @@
+<mat-accordion>
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Bloque
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-form-field>
+            <input matInput placeholder="Nombre" [(ngModel)]="bloq.nombre">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Supervisor</mat-label>
+            <mat-select [(ngModel)]="bloq.supervisor">
+                <mat-option *ngFor="let sup of workerSupervisores" [value]="sup.id">
+                    {{sup.nombres}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <textarea matInput placeholder="Ubicación" [(ngModel)]="bloq.ubicacion"></textarea>
+        </mat-form-field>
+        <button mat-raised-button (click)="selBloqNew()">Nuevo</button>
+        <button mat-raised-button (click)="saveBloq()">Guardar</button>
+    </mat-expansion-panel>
+    <mat-list>
+        <mat-list-item *ngFor="let item of bloqs" (click)="selBloq(item)">
+            <h3 matLine>{{item.nombre}}</h3>
+            <p matLine> {{item.supervisor}}</p>
+            <small matLine> {{item.ubicacion}} - {{item.fecha | date}}</small>
+            <button mat-button (click)="inactivar(item)">X</button>
+        </mat-list-item>
+    </mat-list>
+</mat-accordion>
