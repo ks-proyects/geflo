@@ -1,3 +1,49 @@
-<p>
-  register-data works!
-</p>
+<mat-card class="login-card">
+    <mat-card-header class="login-header">
+        <mat-card-title>
+            <mat-icon class="login-icon">account_circle</mat-icon>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <span>{{currentUser.displayName}}</span>
+        <form>
+            <mat-form-field [hideRequiredMarker]=true [floatLabel]="'auto'">
+                <input matInput placeholder="Ingrese tus Nombres" [(ngModel)]="user.firsName" name="firsName" required>
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            </mat-form-field>
+            <mat-form-field [hideRequiredMarker]=true [floatLabel]="'auto'">
+                <input matInput placeholder="Ingrese tus Apellidos" [(ngModel)]="user.lastName" name="lastName" required>
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            </mat-form-field>
+            <mat-form-field [hideRequiredMarker]=true [floatLabel]="'auto'">
+                <input matInput [matDatepicker]="picker" placeholder="Selecciona tu fecha de nacimiento" [(ngModel)]="user.bithDate" name="lastName">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field [hideRequiredMarker]=true [floatLabel]="'auto'">
+                <mat-select placeholder="Selecciona tu Sexo" [(value)]="user.sexo">
+                    <mat-option>-- Seleccione --</mat-option>
+                    <mat-option *ngFor="let food of listaSexo" [value]="food.id">
+                        {{food.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field [hideRequiredMarker]=true [floatLabel]="'auto'">
+                <mat-select placeholder="Selecciona tu tipo de cuenta" [(value)]="user.tipo">
+                    <mat-option>-- Seleccione --</mat-option>
+                    <mat-option *ngFor="let food of listaTipoCuenta" [value]="food.id">
+                        {{food.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field [hideRequiredMarker]=true [floatLabel]="'auto'" *ngIf="user.tipo=='2'">
+                <input matInput placeholder="Ingresa el nombre de tu empresa" [(ngModel)]="user.company" name="company" >
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            </mat-form-field>
+        </form>
+        <mat-spinner [style.display]="showSpinner? 'block' : 'none'"></mat-spinner>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button (click)="finalizar()" color="primary">Finalizar</button>
+    </mat-card-actions>
+</mat-card>

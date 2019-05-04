@@ -7,7 +7,7 @@ export class UserService{
 
     }
     create(user){
-      this.afs.collection('users').add(user);
+      return this.afs.collection('users').add(user);
     }
 }
 

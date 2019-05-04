@@ -21,36 +21,35 @@ export class RegisterComponent implements OnInit {
   }
   register(opt) {
     this.showSpinner = true;
-      switch (opt) {
+    switch (opt) {
         case 'FAC':
             this.outhService.registerWithFacebook().then((result) => {
-              this.router.navigate(['registerData']);
+                this.router.navigate(['registerData']);
             }).catch((error) => {
                 console.log(error);
             });
             break;
         case 'GOG':
             this.outhService.registerWithGoogle().then((result) => {
-              this.showSpinner = false;
-              this.router.navigate(['registerData']);
+                this.showSpinner = false;
+                this.router.navigate(['registerData']);
             }).catch((error) => {
                 console.log(error);
             });
             break;
         case 'USP':
             this.outhService.registerWithUser(this.email, this.password).then((result) => {
-              this.showSpinner = false;
-              this.router.navigate(['registerData']);
+                this.showSpinner = false;
+                this.router.navigate(['registerData']);
             }).catch((error) => {
                 this.snackBar.open(error.message, null, {
-                  duration: 2000,
+                    duration: 2000,
                 });
                 this.showSpinner = false;
             });
             break;
         default:
-          break;
-      }
+            break;
+    }
   }
-
 }
