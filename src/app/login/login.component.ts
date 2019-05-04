@@ -8,6 +8,7 @@ import {
 import {
   MessagingService
 } from '../messaging.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -15,15 +16,43 @@ import {
   styleUrls: ['./login.component.less']
 })
 export class LoginComponent implements OnInit {
-  user: any = {};
-  constructor(protected outhService: OuthService, private msgService: MessagingService) {}
+  username: any = '';
+  password: any = '';
+  showSpinner: any = false;
+  constructor(protected outhService: OuthService, private msgService: MessagingService, private router: Router) {}
   ngOnInit() {}
-  login() {
-      this.outhService.loginWithFacebook().then((result) => {
-          this.user = result.user;
-          this.msgService.getPermission();
-      }).catch((error) => {
-          console.log(error);
-      });
+  login(opt) {
+      this.showSpinner = true;
+      switch (opt) {
+        case 'FAC':
+            this.outhService.loginWithFacebook().then((result) => {
+              this.showSpinner = false;
+              this.msgService.getPermission();
+              this.router.navigate(['/home']);
+            }).catch((error) => {
+                console.log(error);
+            });
+            break;
+        case 'GOG':
+            this.outhService.loginWithGoogle().then((result) => {
+              this.showSpinner = false;
+              this.msgService.getPermission();
+              this.router.navigate(['/home']);
+            }).catch((error) => {
+                console.log(error);
+            });
+            break;
+        case 'USP':
+            this.outhService.loginWithUser(this.username, this.password).then((result) => {
+              this.showSpinner = false;
+              this.msgService.getPermission();
+              this.router.navigate(['/home']);
+            }).catch((error) => {
+                console.log(error);
+            });
+            break;
+        default:
+          break;
+      }
   }
 }

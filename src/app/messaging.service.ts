@@ -9,19 +9,15 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class MessagingService {
-
-  messaging = firebase.messaging()
-  currentMessage = new BehaviorSubject(null)
-
-  constructor(private db: AngularFireDatabase, private afAuth: AngularFireAuth) { }
-
-
+  messaging = firebase.messaging();
+  currentMessage = new BehaviorSubject({});
+  constructor(private db: AngularFireDatabase, private afAuth: AngularFireAuth) {}
   updateToken(token) {
     this.afAuth.authState.take(1).subscribe(user => {
-      if (!user) return;
-      const data = { [user.uid]: token }
+      if (!user) {return; }
+      const data = { [user.uid]: token };
       this.db.object('fcmTokens/').update(data);
-    })
+    });
   }
 
   getPermission() {

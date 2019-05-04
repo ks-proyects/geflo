@@ -1,7 +1,7 @@
 <div style="text-align:center">
     <div *ngIf=message>{{ message | async | json }}</div> 
     <h1>
-        Bienvenido!
+        Bienvenido! <strong *ngIf=currentUser>{{currentUser.displayName}}</strong>
     </h1>
     <img width="300" alt="Angular Logo" src="../assets/icon-geflo512x512.png">
 </div>
