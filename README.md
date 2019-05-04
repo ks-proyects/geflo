@@ -3,29 +3,28 @@ Aplicación para la gestión de rosas de invernadero
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
 
-##Cargar Proyecto
+## Instalacion de Framework
+<p>sudo npm install -g @angular/cli</p>
+<p>sudo npm install -g http-server</p>
+<p>ng new geflo</p>
 
-git clone https://github.com/ks-proyects/geflo.git
-cd geflo
-npm install
+## Cargar Proyecto
+<p>git clone https://github.com/ks-proyects/geflo.git</p>
+<p>cd geflo</p>
+<p>npm install</p>
 
-## Correr Proyecto Angular
-ng serve --open
-## Correr Proyecto Angular PWA
-sudo npm install -g http-server
-ng build --prod
-cd dist/geflo/
-http-server
-## Development server
+## Correr Proyecto Angular Local Host
+ng serve --open --port 8090
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Correr Proyecto Angular PWA Producción
+<p>ng build --prod</p>
+<p>cd dist/geflo/</p>
+<p>http-server</p>
 
 ## Code scaffolding
-
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 ## Build
-
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
 ## Running unit tests
