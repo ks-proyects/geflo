@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore} from '@angular/fire/firestore';
-export interface Item { name: string; price: number }
 
 @Injectable({providedIn: 'root'})
 export class BloqService{

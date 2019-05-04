@@ -9,6 +9,7 @@ import {
   MessagingService
 } from '../messaging.service';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-login',
@@ -19,8 +20,12 @@ export class LoginComponent implements OnInit {
   username: any = '';
   password: any = '';
   showSpinner: any = false;
-  constructor(protected outhService: OuthService, private msgService: MessagingService, private router: Router) {}
+  constructor(protected outhService: OuthService, private msgService: MessagingService, private router: Router, 
+    private snackBar:MatSnackBar ) {}
   ngOnInit() {}
+  register(){
+    this.router.navigate(['/register']);
+  }
   login(opt) {
       this.showSpinner = true;
       switch (opt) {
@@ -48,7 +53,10 @@ export class LoginComponent implements OnInit {
               this.msgService.getPermission();
               this.router.navigate(['/home']);
             }).catch((error) => {
-                console.log(error);
+                this.snackBar.open(error.message, null, {
+                  duration: 2000,
+                });
+                this.showSpinner = false;
             });
             break;
         default:

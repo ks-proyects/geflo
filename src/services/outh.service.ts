@@ -16,6 +16,15 @@ export class OuthService {
     loginWithUser(email: string , password: string ) {
         return this.afAuth.auth.signInWithEmailAndPassword(email, password);
     }
+    registerWithGoogle() {
+        return this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+    }
+    registerWithFacebook() {
+        return this.afAuth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider());
+    }
+    registerWithUser(email: string , password: string ) {
+        return this.afAuth.auth.createUserWithEmailAndPassword(email, password);
+    }
     logout() {
         return this.afAuth.auth.signOut();
     }

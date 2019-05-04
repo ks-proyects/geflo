@@ -40,6 +40,7 @@ import { LoginComponent } from './login/login.component';
 import { BloquesComponent } from './bloques/bloques.component';
 import { BloquesEditComponent } from './bloques-edit/bloques-edit.component';
 import { RegisterComponent } from './register/register.component';
+import { RegisterDataComponent } from './register/register-data/register-data.component';
 
 const firebaseConfig: any = {
     apiKey: 'AIzaSyBqnISpUrzsVFNrpiz5Dt44eVngRoxk9P8',
@@ -55,7 +56,8 @@ const appRouter: Routes = [
    {path: 'login', component: LoginComponent},
    {path: 'bloques', component: BloquesComponent},
    {path: 'bloquesEdit', component: BloquesEditComponent},
-   {path: 'register', component: RegisterComponent}
+   {path: 'register', component: RegisterComponent},
+   {path: 'registerData', component: RegisterDataComponent}
  ];
 
 @NgModule({
@@ -65,7 +67,8 @@ const appRouter: Routes = [
     LoginComponent,
     BloquesComponent,
     BloquesEditComponent,
-    RegisterComponent
+    RegisterComponent,
+    RegisterDataComponent
   ],
   imports: [
     BrowserModule,
