@@ -52,7 +52,8 @@ const appRouter: Routes = [
    {path: '', component: HomeComponent},
    {path: 'home', component: HomeComponent},
    {path: 'login', component: LoginComponent},
-   {path: 'bloques', component: BloquesComponent}
+   {path: 'bloques', component: BloquesComponent},
+   {path: 'bloquesEdit', component: BloquesEditComponent}
  ];
 
 @NgModule({

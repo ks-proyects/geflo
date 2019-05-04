@@ -1,11 +1,26 @@
-<h1 mat-dialog-title>Hi {{data.nombre}}</h1>
-<div mat-dialog-content>
-  <p>What's your favorite animal?</p>
-  <mat-form-field>
-    <input matInput [(ngModel)]="data.nombre">
-  </mat-form-field>
-</div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">No Thanks</button>
-  <button mat-button [mat-dialog-close]="data.nombre" cdkFocusInitial>Ok</button>
-</div>
+<h1 mat-dialog-title *ngIf=isCreate>Crear</h1>
+<h1 mat-dialog-title *ngIf=!isCreate>Editar</h1>
+<mat-dialog-content>
+    <mat-form-field [hideRequiredMarker]=true [floatLabel]="'auto'">
+        <input matInput placeholder="Nombre" required [(ngModel)]="data.nombre">
+    </mat-form-field>
+    <mat-form-field [hideRequiredMarker]=true [floatLabel]="'auto'">
+        <input matInput placeholder="Ubicación" required [(ngModel)]="data.ubicacion">
+    </mat-form-field>
+
+    <mat-form-field [hideRequiredMarker]="true" [floatLabel]="'auto'">
+        <mat-select required [(ngModel)]="data.supervisor">
+            <mat-option>-- None --</mat-option>
+            <mat-option *ngFor="let sup of listSupervisores" [value]="sup.id">
+                {{sup.nombres}}
+            </mat-option>
+        </mat-select>
+        <mat-label>
+            <mat-icon>favorite</mat-icon> <b> Supervisor</b> <i> label</i>
+        </mat-label>
+    </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Cancelar</button>
+    <button mat-button [mat-dialog-close]="data.nombre" (click)="saveBloq()" cdkFocusInitial>Guardar</button>
+</mat-dialog-actions>
