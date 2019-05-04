@@ -6,6 +6,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Instalacion de Framework
 <p>sudo npm install -g @angular/cli</p>
 <p>sudo npm install -g http-server</p>
+<p>npm install -g firebase-tools</p>
 <p>ng new geflo</p>
 
 ## Cargar Proyecto
