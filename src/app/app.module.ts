@@ -16,14 +16,13 @@ import {
   MatProgressSpinnerModule,
   MatSortModule,
   MatPaginatorModule,
-  MatDialog,
   MatDialogModule,
   MatDatepickerModule,
   MatNativeDateModule
 } from '@angular/material';
 import {MatTableModule} from '@angular/material/table';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, Component } from '@angular/core';
+import { NgModule} from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
@@ -34,8 +33,6 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { FormsModule } from '@angular/forms';
-
-import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
@@ -52,15 +49,7 @@ const firebaseConfig: any = {
     storageBucket: 'geflo-eb404.appspot.com',
     messagingSenderId: '126734069562'
  };
-const appRouter: Routes = [
-   {path: '', component: HomeComponent},
-   {path: 'home', component: HomeComponent},
-   {path: 'login', component: LoginComponent},
-   {path: 'bloques', component: BloquesComponent},
-   {path: 'bloquesEdit', component: BloquesEditComponent},
-   {path: 'register', component: RegisterComponent},
-   {path: 'registerData', component: RegisterDataComponent}
- ];
+
 
 @NgModule({
   declarations: [
@@ -89,7 +78,6 @@ const appRouter: Routes = [
     MatCardModule,
     MatCardModule,
     MatMenuModule,
-    RouterModule.forRoot(appRouter),
     MatButtonToggleModule,
     MatTableModule,
     MatToolbarModule,

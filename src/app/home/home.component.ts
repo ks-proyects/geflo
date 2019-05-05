@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MessagingService } from '../messaging.service';
 import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
@@ -10,12 +9,11 @@ import { AngularFireAuth } from '@angular/fire/auth';
 export class HomeComponent implements OnInit {
   message: any = {};
   currentUser: any = {};
-  constructor(private msgService: MessagingService, private afAuth: AngularFireAuth) {
+  constructor(private afAuth: AngularFireAuth) {
   }
   ngOnInit() {
     this.afAuth.authState.take(1).subscribe(user => {
       this.currentUser = user;
     });
-    this.message = this.msgService.currentMessage;
   }
 }
