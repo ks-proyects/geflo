@@ -21,6 +21,9 @@ ng serve --open --port 8090
 <p>ng build --prod</p>
 <p>cd dist/geflo/</p>
 <p>http-server</p>
+## Notificación Push
+
+https://ciphertrick.com/2019/04/13/browser-push-notifications-in-angular-applications/
 
 ## Code scaffolding
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
