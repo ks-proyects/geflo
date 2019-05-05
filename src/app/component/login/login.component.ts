@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {OuthService} from 'src/services/outh.service';
-import {MessagingService} from '../messaging.service';
+import {OuthService} from 'src/app/services/outh.service';
+import {MessagingService} from '../../messaging.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material';
 
@@ -13,8 +13,11 @@ export class LoginComponent implements OnInit {
   username: any = '';
   password: any = '';
   showSpinner: any = false;
-  constructor(protected outhService: OuthService, private msgService: MessagingService, private router: Router, 
-    private snackBar:MatSnackBar ) {}
+  constructor(
+    protected outhService: OuthService,
+    private msgService: MessagingService,
+    private router: Router,
+    private snackBar: MatSnackBar) {}
   ngOnInit() {}
   register(){
     this.router.navigate(['/register']);

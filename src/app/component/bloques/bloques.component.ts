@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {BloqService} from 'src/services/bloq.service';
+import {BloqService} from 'src/app/services/bloq.service';
 import {MatSnackBar, MatDialog} from '@angular/material';
 import {BloquesEditComponent} from '../bloques-edit/bloques-edit.component';
 

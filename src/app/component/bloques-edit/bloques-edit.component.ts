@@ -8,7 +8,7 @@ import {
   MAT_DIALOG_DATA,
   MatSnackBar
 } from '@angular/material';
-import { BloqService } from 'src/services/bloq.service';
+import { BloqService } from 'src/app/services/bloq.service';
 
 @Component({
   selector: 'app-bloques-edit',

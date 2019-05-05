@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { UserService } from 'src/services/user.service';
+import { UserService } from 'src/app/services/user.service';
 import { MatSnackBar } from '@angular/material';
 import { Router } from '@angular/router';
 

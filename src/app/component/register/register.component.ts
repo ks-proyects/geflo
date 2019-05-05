@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { OuthService } from 'src/services/outh.service';
+import { OuthService } from 'src/app/services/outh.service';
 import { MatSnackBar } from '@angular/material';
 import { Router } from '@angular/router';
 import {FormControl, Validators} from '@angular/forms';

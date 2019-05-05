@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {SwUpdate} from '@angular/service-worker';
 import { MatSnackBar } from '@angular/material';
-import { OuthService } from 'src/services/outh.service';
+import { OuthService } from 'src/app/services/outh.service';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
 @Component({

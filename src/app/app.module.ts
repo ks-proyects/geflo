@@ -34,12 +34,12 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
-import { BloquesComponent } from './bloques/bloques.component';
-import { BloquesEditComponent } from './bloques-edit/bloques-edit.component';
-import { RegisterComponent } from './register/register.component';
-import { RegisterDataComponent } from './register/register-data/register-data.component';
+import { HomeComponent } from './component/home/home.component';
+import { LoginComponent } from './component/login/login.component';
+import { BloquesComponent } from './component/bloques/bloques.component';
+import { BloquesEditComponent } from './component/bloques-edit/bloques-edit.component';
+import { RegisterComponent } from './component/register/register.component';
+import { RegisterDataComponent } from './component/register-data/register-data.component';
 
 const firebaseConfig: any = {
     apiKey: 'AIzaSyBqnISpUrzsVFNrpiz5Dt44eVngRoxk9P8',
