@@ -1,13 +1,6 @@
-import {
-  Component,
-  OnInit
-} from '@angular/core';
-import {
-  OuthService
-} from 'src/services/outh.service';
-import {
-  MessagingService
-} from '../messaging.service';
+import {Component, OnInit} from '@angular/core';
+import {OuthService} from 'src/services/outh.service';
+import {MessagingService} from '../messaging.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material';
 
